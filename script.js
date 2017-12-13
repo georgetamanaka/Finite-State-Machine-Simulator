@@ -1,6 +1,11 @@
 $(document).ready(function(){
 	$("#myCanvas").hide();
 	$("#descriptionBox").fadeIn(1000);
+	$("#nextButton1").click(function(){
+		$("#firstScreen").fadeOut(1000);
+		$("#firstScreen").hide();
+		$("#secondScreen").fadeIn(1000);
+	});
 	$("#submitButton").click(function(){
 		$("#descriptionBox").fadeOut(1000, myFunction(parseInt($("#qtdEstados").val())));
 	});
