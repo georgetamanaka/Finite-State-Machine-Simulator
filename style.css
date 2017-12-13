@@ -2,6 +2,10 @@ body{
 	background-color: MediumSeaGreen;
 }
 
+p{
+	font-family:Arial;
+}
+
 h1{
 	color:gray; 
 	font-size: 1.5em; 
@@ -10,10 +14,61 @@ h1{
 	margin-left: 20px;
 }
 
-#submitButton{
-	height: 30px;
-	margin-top: 15px;
+select {
+    width: 50%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+}
 
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+input[type=button]{
+    background-color: MediumSeaGreen;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 40px 2px;
+    cursor: pointer;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
 
 #descriptionBox{
@@ -24,6 +79,6 @@ h1{
 	border-radius: 15px;
 	padding: 10px;
 	text-align: center;
-	height: 200px;
+	height: 400px;
 	width: 50%;
 }

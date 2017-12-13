@@ -4,17 +4,44 @@
 	<title>Trabalho de Sistemas Digitais</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script>
 	<script src="script.js"></script>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-		<!--<h1>Máquina de Estados Finitos</h1>-->
+		<canvas id="myCanvas" width="1000" height="1000"></canvas>
+
 		<div id="descriptionBox">
 			<h1>FSM Simulator</h1>
-			<p>Escolha o tipo de máquina:</p>
-			<input type="radio" name="machineType" value="mealy" checked>Mealy<br>
-			<input type="radio" name="machineType" value="moore">Moore<br>	
-			<input type="image" id="submitButton" src="img/buttons/submitButton.png">
+			<p>Escolha a máquina:</p>
+			<div class="tooltip">
+				<input type="radio" name="machineType" value="mealy" checked>Mealy<br>
+				<span class="tooltiptext">Saída na transição</span>
+			</div><br>
+			<div class="tooltip">
+				<input type="radio" name="machineType" value="moore">Moore<br>
+				<span class="tooltiptext">Saída no estado</span>
+			</div><br>	
+
+			<p>Número de Estados:</p>
+			<select id="qtdEstados" name="estados">
+ 		   		<option value="1">um</option>
+   				<option value="2">dois</option>
+   				<option value="3">três</option>
+   				<option value="4">quatro</option>
+   				<option value="5">cinco</option>
+   				<option value="6">seis</option>
+   				<option value="7">sete</option>
+   				<option value="8">oito</option>
+   				<option value="9">nove</option>
+   				<option value="10">dez</option>
+   				<option value="11">onze</option>
+   				<option value="12">doze</option>
+   				<option value="13">treze</option>
+   				<option value="14">quatorze</option>
+  			</select><br> 
+
+			<input id="submitButton" type="button" value="Submeter">
 		</div>
 </body>
 
