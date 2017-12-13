@@ -1,0 +1,29 @@
+body{
+	background-color: MediumSeaGreen;
+}
+
+h1{
+	color:gray; 
+	font-size: 1.5em; 
+	font-family:Arial; 
+	text-align:left;
+	margin-left: 20px;
+}
+
+#submitButton{
+	height: 30px;
+	margin-top: 15px;
+
+}
+
+#descriptionBox{
+	display:none;
+	background-color: white;
+	margin: auto;
+	margin-top: 100px; 
+	border-radius: 15px;
+	padding: 10px;
+	text-align: center;
+	height: 200px;
+	width: 50%;
+}
