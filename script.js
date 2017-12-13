@@ -6,6 +6,22 @@ $(document).ready(function(){
 		$("#firstScreen").hide();
 		$("#secondScreen").fadeIn(1000);
 	});
+
+	$("#previousButton1").click(function(){
+		$("#secondScreen").hide();
+		$("#firstScreen").fadeIn(1000);
+	});
+
+	$("#previousButton2").click(function(){
+		$("#thirdScreen").hide();
+		$("#secondScreen").fadeIn(1000);
+	});
+
+	$("#nextButton2").click(function(){
+		$("#secondScreen").hide();
+		$("#thirdScreen").fadeIn(1000);
+	});
+
 	$("#submitButton").click(function(){
 		$("#descriptionBox").fadeOut(1000, myFunction(parseInt($("#qtdEstados").val())));
 	});

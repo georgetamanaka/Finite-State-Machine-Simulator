@@ -41,6 +41,15 @@ select {
     border-color: transparent black transparent transparent;
 }
 
+input[type=text]{
+    background-color: white;
+    border: none;
+    text-decoration: none;
+    height: 200px;
+    width: 90%;
+    cursor: pointer;
+}
+
 input[type=button]{
     background-color: MediumSeaGreen;
     border: none;
