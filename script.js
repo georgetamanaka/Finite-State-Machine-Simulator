@@ -52,4 +52,27 @@ function myFunction(numStates){
         ctx.translate(0, biggerRadius*0.85 + smallerRadius);
         ctx.rotate(-ang);
 	}
+
+	var fromx = (biggerRadius*0.85 + smallerRadius) * Math.cos(2 * 2 * Math.PI / numStates);
+	var fromy = (biggerRadius*0.85 + smallerRadius) * Math.sin(2 * 2 * Math.PI / numStates);
+
+	var tox = (biggerRadius*0.85 + smallerRadius) * Math.cos(10 * 2 * Math.PI / numStates);
+	var toy = (biggerRadius*0.85 + smallerRadius) * Math.sin(10 * 2 * Math.PI / numStates);
+
+
+	ctx.beginPath();
+	canvas_arrow(ctx, fromx, fromy, tox, toy);
+	ctx.stroke();
+}
+
+function canvas_arrow(context, fromx, fromy, tox, toy){
+    var headlen = 10;   // length of head in pixels
+    var angle = Math.atan2(toy-fromy,tox-fromx);
+    context.moveTo(fromx, fromy);
+    context.lineTo(tox, toy);
+    
+    //desenha o ponteiro
+    context.lineTo(tox-headlen*Math.cos(angle-Math.PI/6),toy-headlen*Math.sin(angle-Math.PI/6));
+    context.moveTo(tox, toy);
+    context.lineTo(tox-headlen*Math.cos(angle+Math.PI/6),toy-headlen*Math.sin(angle+Math.PI/6));
 }
