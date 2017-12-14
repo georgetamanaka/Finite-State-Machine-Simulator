@@ -160,6 +160,7 @@ input[type=button]:hover{
 	text-align: center;
 	height: 400px;
 	width: 50%;
+    overflow: scroll;
 }
 
 
@@ -209,4 +210,8 @@ input[type=button]:hover{
 	margin-bottom: 15px;
 	color: white;
 	font-size: 20px;
+}
+
+#tabela, #text{
+    background:Gray;
 }

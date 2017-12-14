@@ -13,7 +13,7 @@ $(document).ready(function(){
 		$("#secondScreen").fadeIn(1000);
 	});
 
-	$("#previousButton1").click(function(){
+	$("#previousButton2").click(function(){
 		$("#secondScreen").hide();
 		$("#firstScreen").fadeIn(1000);
 	});
@@ -22,13 +22,28 @@ $(document).ready(function(){
 		$("#sliderValue").text($("#qtdEstados").val());
 	});
 
-	$("#previousButton2").click(function(){
+	$("#previousButton3").click(function(){
 		$("#thirdScreen").hide();
 		$("#secondScreen").fadeIn(1000);
 	});
 
 	$("#nextButton2").click(function(){
 		$("#secondScreen").hide();
+		$("#thirdScreen").fadeIn(1000);
+	});
+
+	$("#text").click(function(){
+		$("#thirdScreen").hide();
+		$("#fourthScreen").fadeIn(1000);
+	});
+
+	$("#tabela").click(function(){
+		$("#thirdScreen").hide();
+		$("#fourthScreen").fadeIn(1000);
+	});
+
+	$("#previousButton4").click(function(){
+		$("#fourthScreen").hide();
 		$("#thirdScreen").fadeIn(1000);
 	});
 
@@ -137,11 +152,13 @@ function myFunction(machineType, numStates, table){
 
     console.log(table.length);
 
+  	/*
     for(var i = 0; i < numStates; i++){
     	for (var j = 0; j < numStates; j++) {
     		drawArrow(i, j, radius, leftMargin, topMargin);
     	}
     }
+    */
 
     //current sate | input | next state | output
 	for (var i = 0; i < table.length; i += 4){
