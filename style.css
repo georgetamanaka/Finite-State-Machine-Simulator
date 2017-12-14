@@ -9,10 +9,24 @@
     z-index: 10;
 }
 
+.selfLoop{
+    position: absolute;
+    background-color: none;
+    border-style: solid;
+    border-color: white ;
+    border-width: 2px;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    z-index: 0;    
+}
+
 .line{
     position: absolute;
     transform-origin: top left;
     background-color: white;
+    border-radius: 10px;
     height: 2px;
     z-index: 0;
 }
@@ -25,7 +39,12 @@
     box-shadow: -2px 2px 0 rgba(255,255,255,1);
     transform-origin: bottom left;
     border-width: 10px;
-    z-index: -1;
+    z-index: -1 ;
+}
+
+#statesCanvas{
+    padding-right: 1000px;
+    margin-right: 100px;
 }
 
 body{
@@ -89,6 +108,12 @@ input[type=button]{
     margin: 40px 2px;
     cursor: pointer;
 	transition:1s;
+}
+
+
+input[type=range]{
+    width: 60%;
+    background-color: MediumSeaGreen;
 }
 
 input[type=button]:hover{
