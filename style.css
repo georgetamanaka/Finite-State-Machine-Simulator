@@ -1,3 +1,30 @@
+.circle {
+    position: absolute;
+    background-color: white;
+    margin: 0px auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.line{
+    position: absolute;
+    transform-origin: top left;
+    background-color: white;
+    height: 2px;
+}
+
+.arrow{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transition: .5s;
+    box-shadow: -2px 2px 0 rgba(255,255,255,1);
+    transform-origin: bottom left;
+    border-width: 10px;
+}
+
 body{
 	background-color: MediumSeaGreen;
 }

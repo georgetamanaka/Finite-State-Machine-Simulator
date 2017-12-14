@@ -1,5 +1,7 @@
+const SMALL_RADIUS = 50;
+
 $(document).ready(function(){
-	$("#myCanvas").hide();
+	$("#statesCanvas").hide();
 	$("#descriptionBox").fadeIn(1000);
 	$("#nextButton1").click(function(){
 		$("#firstScreen").fadeOut(1000);
@@ -28,51 +30,76 @@ $(document).ready(function(){
 });
 
 function myFunction(numStates){
-	$("#myCanvas").show();
+	$("#statesCanvas").show();
 
-	var canvas = document.getElementById("myCanvas");
-	var ctx = canvas.getContext("2d");
 
-	ctx.canvas.width  = window.innerWidth;
- 	ctx.canvas.height = window.innerHeight;
+	var div = 360 / numStates;
+    var radius = numStates * 35;
+    var offsetToParentCenter = numStates * 80 / 2;
+    var offsetToChildCenter = 20;
+    var totalOffset = offsetToParentCenter - offsetToChildCenter;
 
- 	var biggerRadius =  0.8 * window.innerHeight/2;
-	var smallerRadius = 44;
-	
-	ctx.translate(window.innerWidth/2, window.innerHeight/2);
+    for (var i = 1; i <= numStates; ++i){
+        $("#statesCanvas").append('<div ' + 'id="state' + i +'" class="circle">' + i +'</div>');
+        var y = Math.sin((div * i) * (Math.PI / 180)) * radius;
+        var x = Math.cos((div * i) * (Math.PI / 180)) * radius;
+        $("#state" + i).css("top", (y + totalOffset) + "px");
+        $("#state" + i).css("left", (x + totalOffset) + "px");
+    }
 
-	for (var i = 0; i < numStates; i++) {
-		ctx.beginPath();
-		ang = i * 2 * Math.PI / numStates;
-        ctx.rotate(ang);
-        ctx.translate(0, -biggerRadius*0.85 - smallerRadius);
-        ctx.arc(0, 0, smallerRadius, 0 , 2*Math.PI);
-    	ctx.fillStyle = "white";
-    	ctx.fill();
-        ctx.translate(0, biggerRadius*0.85 + smallerRadius);
-        ctx.rotate(-ang);
+	for (var j = 1; j <= numStates; j++){
+		for(var i = 1; i <= numStates; i++){
+			if(i != j)drawArrow(i, j);
+		} 	
 	}
-
-	var fromx = (biggerRadius*0.85 + smallerRadius) * Math.cos(2 * 2 * Math.PI / numStates);
-	var fromy = (biggerRadius*0.85 + smallerRadius) * Math.sin(2 * 2 * Math.PI / numStates);
-
-	var tox = (biggerRadius*0.85 + smallerRadius) * Math.cos(10 * 2 * Math.PI / numStates);
-	var toy = (biggerRadius*0.85 + smallerRadius) * Math.sin(10 * 2 * Math.PI / numStates);
-
-
-	ctx.beginPath();
-	canvas_arrow(ctx, fromx, fromy, tox, toy);
-	ctx.stroke();
 }
 
-function canvas_arrow(context, fromx, fromy, tox, toy){
-    var headlen = 10;   // length of head in pixels
-    var angle = Math.atan2(toy-fromy,tox-fromx);
-    context.moveTo(fromx, fromy);
-    context.lineTo(tox, toy);
-    
-    //desenha o ponteiro
-    context.lineTo(tox-headlen*Math.cos(angle-Math.PI/6),toy-headlen*Math.sin(angle-Math.PI/6));
-    context.moveTo(tox, toy);
-    context.lineTo(tox-headlen*Math.cos(angle+Math.PI/6),toy-headlen*Math.sin(angle+Math.PI/6));
+function drawArrow(from, to){
+	var fromx = parseFloat($("#state" + from).css("left")) + SMALL_RADIUS;
+	var fromy = parseFloat($("#state" + from).css("top")) + SMALL_RADIUS;
+	var tox = parseFloat($("#state" + to).css("left")) + SMALL_RADIUS;
+	var toy = parseFloat($("#state" + to).css("top")) + SMALL_RADIUS;
+
+	var length = Math.sqrt(Math.pow(tox -  fromx, 2) + Math.pow(toy -  fromy, 2));
+	var angle = Math.atan2(toy - fromy, tox - fromx);
+	/*
+	console.log("cos: " + (fromx - tox)/length)
+	console.log("length: " + length)
+	console.log("fromx: " + fromx);
+	console.log("fromy: " + fromy);
+	console.log("tox: " + tox);
+	console.log("toy: " + toy);
+
+	console.log("x: " + (fromx + tox)/2);
+	console.log("y: " + (fromy + toy)/2);
+	*/
+
+
+	//console.log(angle);
+
+	var alpha = 1 - SMALL_RADIUS/length;
+
+	$("#statesCanvas").append('<div ' + 'id="line' + from + "to" + to + '" class="line"></div>');
+	
+
+	$("#line" + from + "to" + to).css({"width": length + "px", "left":fromx,
+										"top":fromy, "transform":"rotate(" + angle + "rad)"});
+	$("#statesCanvas").append('<div ' + 'id="arrow' + from + "to" + to + '" class="arrow"></div>')
+	$("#arrow" + from + "to" + to).css({"left":((1-alpha) * fromx + alpha * tox) + "px", "top":((1-alpha) * fromy+ alpha * toy) - 25 + "px", "transform":"rotate(" + (- 3 * Math.PI/4 + angle) + "rad)"})
+
+
+
+
+	if(fromx < tox){
+		
+	}
+	else{
+		//$("#line" + from + "to" + to).css({"width": length + "px", "left":tox,
+		//								"top":toy, "transform":"rotate(" + angle + "rad)"});
+	}
+
+
+	//window.location.reload(true);
+	
+
 }
