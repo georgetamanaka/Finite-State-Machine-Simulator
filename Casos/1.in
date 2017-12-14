@@ -10,6 +10,7 @@
 4 1 4 1
 
 Caso de teste simples:
+  -Moore
   -5 estados
   -0 alterna entre todos os estados
   -1 coloca em self-loop
