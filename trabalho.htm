@@ -10,8 +10,18 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-		<div id="statesCanvas">
+
+	<article>
+
+		<div id="botoes">
+			<div id="titulo">Entrada</div>
+			<button id="btn0">0</button>
+			<button id="btn1">1</button>
+			<button id="relatorio">rel</button>
 		</div>
+
+
+		<div id="statesCanvas"></div>
 
 		<div id="descriptionBox">
 			<h1>FSM Simulator</h1>
@@ -31,37 +41,21 @@
 
 			<div id="secondScreen" style="display: none;">
 				<p>Número de Estados:</p>
-				<select id="qtdEstados" name="estados">
-	 		   		<option value="1">um</option>
-	   				<option value="2">dois</option>
-	   				<option value="3">três</option>
-	   				<option value="4">quatro</option>
-	   				<option value="5">cinco</option>
-	   				<option value="6">seis</option>
-	   				<option value="7">sete</option>
-	   				<option value="8">oito</option>
-	   				<option value="9">nove</option>
-	   				<option value="10">dez</option>
-	   				<option value="11">onze</option>
-	   				<option value="12">doze</option>
-	   				<option value="13">treze</option>
-	   				<option value="14">quatorze</option>
-	   				<option value="100">cem</option>
-	  			</select><br> 
-
+				<input type="range" id="qtdEstados" name="points" min="0" max="30">
+				<p id="sliderValue">0</p>
 	  			<input id="previousButton1" type="button" value="Anterior">
 	  			<input id="nextButton2" type="button" value="Próximo">
 	  		</div>
 
 	  		<div id="thirdScreen" style="display: none;">
-	  			<input type="text" name="truthTable" placeholder="Insira a tabela verdade"><br>
-	  			<input id="previousButton2" type="button" value="Anterior">
+	  			<textarea rows="10" cols="80" name="truthTable" placeholder="Insira a tabela verdade"></textarea><br>
+				<input id="previousButton2" type="button" value="Anterior">
 	  			<input id="submitButton" type="button" value="Submeter">
 	  		</div>
 
-
-			
 		</div>
+		
+		</article>
 </body>
 
 

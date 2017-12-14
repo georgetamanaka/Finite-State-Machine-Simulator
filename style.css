@@ -6,6 +6,7 @@
     height: 100px;
     border-radius: 50px;
     text-align: center;
+    z-index: 10;
 }
 
 .line{
@@ -13,6 +14,7 @@
     transform-origin: top left;
     background-color: white;
     height: 2px;
+    z-index: 0;
 }
 
 .arrow{
@@ -23,6 +25,7 @@
     box-shadow: -2px 2px 0 rgba(255,255,255,1);
     transform-origin: bottom left;
     border-width: 10px;
+    z-index: -1;
 }
 
 body{
@@ -68,7 +71,7 @@ select {
     border-color: transparent black transparent transparent;
 }
 
-input[type=text]{
+textarea{
     background-color: white;
     border: none;
     text-decoration: none;
@@ -85,7 +88,14 @@ input[type=button]{
     text-decoration: none;
     margin: 40px 2px;
     cursor: pointer;
+	transition:1s;
 }
+
+input[type=button]:hover{
+	background-color: #4ad387;
+	transition: 1s;
+}
+
 
 /* Tooltip container */
 .tooltip {
@@ -125,4 +135,53 @@ input[type=button]{
 	text-align: center;
 	height: 400px;
 	width: 50%;
+}
+
+
+#botoes{
+	border-radius: 15px; 
+	font-family:Arial;
+	background-color: #fff;
+	width: 200px;
+	height: 110px;
+	text-align:center;
+	opacity: 0.7;
+	transition:1s;
+}
+#botoes:hover{
+	opacity: 1;
+	transition:1s;
+}
+
+#botoes button{
+	background:MediumSeaGreen;
+	border:none;
+	padding: 8px 20px;
+	color: white;
+	margin: 0 5px;
+	border-radius: 5px;
+}
+#botoes button{
+	background:MediumSeaGreen;
+	border:none;
+	padding: 8px 20px;
+	color: white;
+	margin: 0 5px;
+	cursor: pointer;
+	transition: 1s;
+}
+
+#botoes button:hover{
+	background-color: #4ad387;
+	transition: 1s;
+}
+
+#titulo{
+	border:1px solid #4ad387;
+	border-radius:15px 15px 0 0;
+	padding: 10px;
+	background: #4ad387;
+	margin-bottom: 15px;
+	color: white;
+	font-size: 20px;
 }
