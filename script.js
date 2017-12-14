@@ -2,9 +2,9 @@ const SMALL_RADIUS = 50;
 const HIGHLIGHT_COLOR = "#C6FF00";
 
 $(document).ready(function(){
-	myFunction(0, 15, 0);
+	//myFunction(0, 15, 0);
 
-	/*$("#statesCanvas").hide();
+	$("#statesCanvas").hide();
 	$("#botoes").hide();
 	$("#descriptionBox").fadeIn(1000);
 	$("#nextButton1").click(function(){
@@ -110,8 +110,7 @@ $(document).ready(function(){
 	$("#relatorio").click(function(){
 		alert(sequenciaEstados + "\n   " + sequenciaEntradas + "\n   " + sequenciaSaidas);
 	});
-	
-*/	
+		
 });
 
 function myFunction(machineType, numStates, table){
@@ -144,7 +143,6 @@ function myFunction(machineType, numStates, table){
     	}
     }
 
-    /*
     //current sate | input | next state | output
 	for (var i = 0; i < table.length; i += 4){
 		console.log("from: " + table[i] + "to: " + table[i + 2]);
@@ -152,7 +150,6 @@ function myFunction(machineType, numStates, table){
 			drawArrow(table[i], table[i + 2], radius, leftMargin, topMargin);
 		}
 	}
-	*/
 }
 
 function drawArrow(from, to, radius, leftMargin, topMargin){
