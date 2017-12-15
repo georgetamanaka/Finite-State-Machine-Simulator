@@ -1,0 +1,112 @@
+\documentclass{report}
+\usepackage{makeidx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{xparse}
+\usepackage{xstring}
+\usepackage{karnaugh-map}
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+\makeatletter
+% \patchcmd{<cmd>}{<search>}{<replace>}{<success>}{<failure>}
+% --- Patch \chapter
+\patchcmd{\@makechapterhead}{30\p@}{\chapheadtopskip}{}{}% Space from top of page to CHAPTER X
+\patchcmd{\@makechapterhead}{1\p@}{\chapheadsep}{}{}% Space between CHAPTER X and CHAPTER TITLE
+\patchcmd{\@makechapterhead}{40\p@}{\chapheadbelowskip}{}{}% Space between CHAPTER TITLE and text
+% --- Patch \chapter*
+\patchcmd{\@makeschapterhead}{50\p@}{\chapheadtopskip}{}{}% Space from top of page to CHAPTER TITLE
+\patchcmd{\@makeschapterhead}{40\p@}{\chapheadbelowskip}{}{}% SPace between CHAPTER TITLE and text
+\makeatother
+% Set new lengths
+\newlength{\chapheadtopskip}\setlength{\chapheadtopskip}{20pt}
+\newlength{\chapheadsep}\setlength{\chapheadsep}{40pt}
+\newlength{\chapheadbelowskip}\setlength{\chapheadbelowskip}{15pt}
+
+
+
+%% Language and font encodings
+\usepackage[portuguese]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+\addto\captionsportuguese{
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Tab.}
+\renewcommand{\chaptername}{Capítulo}
+}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    {\Large
+    Universidade de São Paulo\par
+    Instituto de Ciências Matemáticas e de Computação\par
+    SSC0118 - Sistemas Digitais\par
+    Prof. Maurício A. Dias\par
+}
+    \vfill
+    {\Huge\bfseries
+Projeto Prático: Simulador de Máquina de Estados Finitos com interface gráfica\par
+}
+\vspace{6ex}
+{\Large
+Gabriel Baltazar Domingos - 10284945\par
+George Yoshio Tamanaka - 9314500\par
+João Vitor dos Santos Tristão - 10262652\par
+João Vitor Nasevicius - 9894540\par}
+\vfill
+\parbox{.5\textwidth}{\centering 2017}
+\end{titlepage}
+
+\tableofcontents
+
+\chapter{Introdução}
+
+\section{Definição do Problema}
+\qquad Define-se como principal proposta deste trabalho da disciplina Sistemas Digitais, a modelagem e desenvolvimento de um simulador de Máquina de Estados Finitos (FSM) que possua interface gráfica e amigável para o usuário. Neste projeto, o usuário deve ser capaz de escolher entre os dois tipos de representação de máquinas de estados, Moore e Mealy, selecionar a quantidade de estados que possuirá, e por fim, inserir as entradas da máquna de estados. O simulador possui algumas limitações relacionadas a quantidade máxima de estados que poderá assumir, também sobre como deve ser a formatação da entrada.
+
+\section{Descrição do Simulador}
+\qquad O simulador, como especificado, possui uma interface gráfica que retorna um diagrama de estados. Para que fosse possível, o programa foi criado utilizando-se das linguagens JavaScript, HTML e, juntamente com bibliotecas gráficas auxiliares como JQuery e CSS. 
+
+\quad  Primeiramente, o usuário é levado a escolher o tipo de máquina que deseja, escolhendo entre Moore ou Mealy. Após a escolha, ele deve selecionar a quantidade de estados que a máquina possuirá, e por fim, inserir os valores de entrada, saída, estados atuais e futuros. A entrada deverá ser composta por:
+\newline
+\newline
+ -\textit{Estado atual} \hfill-\textit{Input}\hfill -\textit{Proximo estado} \hfill -\textit{Saída}
+\newline
+\newline
+
+
+\qquad Obrigatoriamente, \textit{Estado atual} e \textit{Proximo Estado} devem ser números inteiros, \underline{começando em 1} e preenchendo todos os valores de 1 até o \textit{numero de máquinas de estados}.
+Também deve ser levado em conta a forma como deve ser \textit{input} e \textit{output}, sendo que a máquina receberá somente 0s e 1s, para realizar as transições.  
+
+não funciona sem um estado inicial
+não fazer as transições muito rápido
+a saída pode ser qualquer valor
+problema com formatação da tabela -> não adicionar espaço a mais
+
+
+\chapter{Desenvolvimento}
+
+\section{Escolha da linguagem}
+\qquad As linguagens JavaScript, CSS e HTML foram utilizadas no projeto, devido ao fato da praticidade em fazer representações gráficas. Para que fosse possível, foi necessário o aprendizado básico sobre um novo paradigma de programação, uma vez que o grupo possuía somente o conhecimento da linguagem C, algo que justifica a principal dificuldade em implementar o simulador.
+
+\qquad As linguagens utilizadas possuem, como diferencial, uma facilidade na implementação pelo fato de possuirem diversos repositórios na internet e por serem famosas entre desenvolvedores, também pela grande quantidade de bibliotecas auxiliares e gráficas, que permitiram que o programa fosse implementado. Seu funcionamento é facilidado pela forma como o programa é rodado, neste caso, em qualquer navegador web, agilizando e simplificando o acesso para todos.  
+
+\section{Exemplo funcional}
+
+
+\chapter{Conclusão}
+
+\qquad Este projeto apresenta como resultado um simulador funcional e gráfico para representar máquinas de estado, com o intuito de reafirmar o conteúdo visto na disciplina Sistemas Digitais durante o semestre. Para tal aplicação, foi necessário um extenso e trabalhoso processo de aprendizado, uma vez que durante o semestre os alunos não foram contemplados com disciplinas que ensinassem programação orientada a objetos. Em relação ao conteúdo teórico de máquina de estados, não houve dificuldade na interpretação, tampouco no entendimento das entradas que o programa deve receber.
+Conclui-se, portanto, que o programa apresentado por esse projeto é funcional, porém limitado devido a baixa familiaridade dos integrantes do grupo em relação ao paradigma e linguagens de programação utilizados, entretanto, cumpre o que foi proposto na especificação.
+
+
+\end{document}
