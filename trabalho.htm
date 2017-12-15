@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.5.8/js/jsplumb.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 	<script src="script.js"></script>
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -28,11 +28,11 @@
 			<div id="firstScreen">	
 				<p>Escolha a máquina:</p>
 				<div class="tooltip">
-					<input type="radio" name="machineType" value="mealy" checked>Mealy<br>
+					<input type="radio" name="machineType" value="0" checked>Mealy<br>
 					<span class="tooltiptext">Saída na transição</span>
 				</div><br>
 				<div class="tooltip">
-					<input type="radio" name="machineType" value="moore">Moore<br>
+					<input type="radio" name="machineType" value="1">Moore<br>
 					<span class="tooltiptext">Saída no estado</span>
 				</div><br>	
 				<input id="nextButton1" type="button" value="Próximo">

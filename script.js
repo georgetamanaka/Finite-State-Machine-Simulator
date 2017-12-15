@@ -1,5 +1,6 @@
 const SMALL_RADIUS = 50;
 const HIGHLIGHT_COLOR = "#C6FF00";
+const COLOR_TRANSITION_TIME = 1000;
 
 $(document).ready(function(){
 	//myFunction(0, 15, 0);
@@ -69,13 +70,15 @@ $(document).ready(function(){
 	$("#btn0").click(function(){
 		var find = 0;
 		// despinta o atual
-		$("#state" + atual).css("background-color", "white");
+		$("#state" + atual).animate({backgroundColor: "white"}, COLOR_TRANSITION_TIME);
+
 			for(var i = 0; i < tabela.length; i += 4){
 				if(tabela[i] == atual && tabela[i+1] == 0){
 					sequenciaSaidas.push(tabela[i+3]);
-					alert("Atual: " +atual + " proximo: " +  tabela[i+2] + " saida: " + tabela[i+3]);
+					//alert("Atual: " +atual + " proximo: " +  tabela[i+2] + " saida: " + tabela[i+3]);
 					atual = tabela[i+2];
-					$("#state" + atual).css("background-color", HIGHLIGHT_COLOR);
+					$("#state" + atual).animate({backgroundColor: HIGHLIGHT_COLOR}, COLOR_TRANSITION_TIME);
+					//$("#state" + atual).css("background-color", HIGHLIGHT_COLOR);
 					find = 1;
 					sequenciaEstados.push(atual);
 					sequenciaEntradas.push(0);
@@ -96,18 +99,18 @@ $(document).ready(function(){
 		var find = 0;
 		
 		//despinta o estado atual
-		$("#state" + atual).css("background-color", "white");
+		$("#state" + atual).animate({backgroundColor: "white"}, COLOR_TRANSITION_TIME);
 		
 		for(var i = 0; i < tabela.length; i += 4){
 			if(tabela[i] == atual && tabela[i+1] == 1){
 				sequenciaSaidas.push(tabela[i+3]);
-				alert("Atual: " +atual + " proximo: " +  tabela[i+2] + " saida: " + tabela[i+3]);
+				//alert("Atual: " +atual + " proximo: " +  tabela[i+2] + " saida: " + tabela[i+3]);
 				atual = tabela[i+2];
 
-				console.log("atual: " + atual);
+				//console.log("atual: " + atual);
 				
 				//pinta o próximo estado
-				$("#state" + atual).css("background-color", HIGHLIGHT_COLOR);
+				$("#state" + atual).animate({backgroundColor: HIGHLIGHT_COLOR}, COLOR_TRANSITION_TIME);
 				
 				find = 1;
 				sequenciaEstados.push(atual);
@@ -143,14 +146,32 @@ function myFunction(machineType, numStates, table){
     var totalOffset = offsetToParentCenter - offsetToChildCenter;
 
     for (var i = 0; i < numStates; ++i){
-        $("#statesCanvas").append('<div ' + 'id="state' + i +'" class="circle">' + i +'</div>');
+        $("#statesCanvas").append('<div ' + 'id="state' + i +'" class="circle"></div>');
+        
+        if(machineType == 0){	
+        	$("#statesCanvas").append('<div ' + 'id="box' + i +'" class="box">' + i +'</div>');
+        }
+        else if(machineType == 1){
+        	var output = "UNDEFINED";
+
+        	for(var j = 0; j < table.length; j += 4){
+				if(table[j] == i){
+					output = table[j + 3];
+					break;
+				}
+			}
+
+        	$("#statesCanvas").append('<div ' + 'id="box' + i +'" class="box"><u>&nbsp' + i +' </u><br>' + output + '</div>');
+        }
+
         var y = Math.sin((div * i) * (Math.PI / 180)) * radius;
         var x = Math.cos((div * i) * (Math.PI / 180)) * radius;
-        $("#state" + i).css("top", (topMargin + y + totalOffset) + "px");
-        $("#state" + i).css("left", (leftMargin + x + totalOffset) + "px");
+        $("#state" + i).css({"top" : (topMargin + y + totalOffset) + "px", "left": (leftMargin + x + totalOffset) + "px"});
+        $("#box" + i).css({"top" : (topMargin + y + totalOffset) + "px", "left": (leftMargin + x + totalOffset) + "px"});
+  
     }
 
-    console.log(table.length);
+    //console.log(table.length);
 
   	/*
     for(var i = 0; i < numStates; i++){
@@ -167,6 +188,9 @@ function myFunction(machineType, numStates, table){
 			drawArrow(table[i], table[i + 2], radius, leftMargin, topMargin);
 		}
 	}
+
+	$("#statesCanvas").append('<div ' + 'id="padding"></div>');
+	$("#padding").css({"position" : "absolute", "left" : leftMargin + 3 * radius, "height" : "100px", "width" : "100px"});
 }
 
 function drawArrow(from, to, radius, leftMargin, topMargin){
