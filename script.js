@@ -38,9 +38,13 @@ $(document).ready(function(){
 		$("#fourthScreen").fadeIn(1000);
 	});
 
-	$("#tabela").click(function(){
+	$("#text").click(function(){
 		$("#thirdScreen").hide();
 		$("#fourthScreen").fadeIn(1000);
+	});
+
+	$("#tabela").click(function(){
+
 	});
 
 	$("#previousButton4").click(function(){
@@ -61,7 +65,7 @@ $(document).ready(function(){
 	$("#submitButton").click(function(){		
 		var tipoMaquina = parseInt($("input[name='machineType']:checked").val());
 		var qtdEstados = parseInt($("#qtdEstados").val());
-		atual = parseInt($("input:textbox").val());
+		atual = parseInt($("input:text").val());
 		tabela = $("textarea[name='truthTable']").val();
 		tabela = tabela.replace( /\n/g, " " ).split(" ");
 		$("#descriptionBox").fadeOut(1000, myFunction(tipoMaquina,qtdEstados,tabela));
@@ -106,6 +110,9 @@ $(document).ready(function(){
 			if(tabela[i] == atual && tabela[i+1] == 1){
 				sequenciaSaidas.push(tabela[i+3]);
 				//alert("Atual: " +atual + " proximo: " +  tabela[i+2] + " saida: " + tabela[i+3]);
+				$("#line" + atual + "to" + tabela[i + 2]).animate({backgroundColor: HIGHLIGHT_COLOR}, COLOR_TRANSITION_TIME);
+				$("#line" + atual + "to" + tabela[i + 2]).animate({backgroundColor: "white"}, COLOR_TRANSITION_TIME);
+
 				atual = tabela[i+2];
 
 				//console.log("atual: " + atual);

@@ -109,6 +109,10 @@ textarea{
     cursor: pointer;
 }
 
+#text1 {
+    border:none;
+}
+
 input[type=text]{
     background-color: white;
     border: none;
