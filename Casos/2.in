@@ -3,6 +3,7 @@ Caso médio:
   -Moore
   -Apresenta um estado indefinido
   -O estado 3 não utiliza todasas todos os inputs -> mensagem de erro
+  -Varre todos os estado
 
   
 1 0 1 1
