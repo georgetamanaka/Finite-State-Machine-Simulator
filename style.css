@@ -109,6 +109,15 @@ textarea{
     cursor: pointer;
 }
 
+input[type=text]{
+    background-color: white;
+    border: none;
+    text-decoration: none;
+    width: 20%;
+    cursor: pointer;
+}
+
+
 input[type=button]{
     background-color: MediumSeaGreen;
     border: none;

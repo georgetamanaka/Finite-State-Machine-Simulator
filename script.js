@@ -50,7 +50,7 @@ $(document).ready(function(){
 
 
 	var tabela;
-	var atual = 0;
+	var atual;
 	
 	var sequenciaEstados = [];
 	var sequenciaEntradas = [];
@@ -61,10 +61,11 @@ $(document).ready(function(){
 	$("#submitButton").click(function(){		
 		var tipoMaquina = parseInt($("input[name='machineType']:checked").val());
 		var qtdEstados = parseInt($("#qtdEstados").val());
+		atual = parseInt($("input:textbox").val());
 		tabela = $("textarea[name='truthTable']").val();
 		tabela = tabela.replace( /\n/g, " " ).split(" ");
 		$("#descriptionBox").fadeOut(1000, myFunction(tipoMaquina,qtdEstados,tabela));
-		$("#state0").css("background-color", HIGHLIGHT_COLOR);
+		$("#state" + atual).css("background-color", HIGHLIGHT_COLOR);
 	});
 	
 	$("#btn0").click(function(){
