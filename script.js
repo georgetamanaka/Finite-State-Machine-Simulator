@@ -21,14 +21,14 @@ $(document).ready(function(){
 	$("#descriptionBox").fadeIn(1000);
 	
 	$("#nextButton1").click(function(){
-		$("#descriptionBox").animate({width: "50%"}, 1000);	
+		$("#descriptionBox").animate({width: "400px"}, 1000);	
 		$("#firstScreen").fadeOut(1000);
 		$("#firstScreen").hide();
 		$("#secondScreen").fadeIn(1000);
 	});
 
 	$("#previousButton2").click(function(){
-		$("#descriptionBox").animate({width: "20%"}, 1000);	
+		$("#descriptionBox").animate({width: "400px"}, 1000);	
 		$("#secondScreen").hide();
 		$("#firstScreen").fadeIn(1000);
 	});
@@ -60,12 +60,12 @@ $(document).ready(function(){
 	$("#examplesButton").click(function(){
 		$("#firstScreen").fadeOut();
 		$("#firstScreen").hide();
-		$("#descriptionBox").animate({width: "40%"});	
+		$("#descriptionBox").animate({width: "800px"});	
 		$("#descriptionBox").animate({height: 500},function(){ $("#examplesScreen").fadeIn()});
 	});
 
 	$("#previousButton5").click(function(){
-		$("#descriptionBox").animate({width: "20%"}, 1000);	
+		$("#descriptionBox").animate({width: "400"}, 1000);	
 		$("#descriptionBox").animate({height: "400px"}, 1000);
 		$("#examplesScreen").hide();
 		$("#firstScreen").fadeIn(1000);
@@ -196,7 +196,7 @@ $(document).ready(function(){
 		sequenciaSaidas = [];
 		
 		$("#descriptionBox").show();
-		$("#descriptionBox").animate({height: "400", width: "20%"});
+		$("#descriptionBox").animate({height: "400", width: "400"});
 		$("#statesCanvas").empty();
 		$("#thirdScreen").hide();
 		$("#statesCanvas").hide();
