@@ -18,7 +18,6 @@
     z-index: 11;
 }
 
-
 .selfLoop{
     position: absolute;
     background-color: none;
@@ -33,11 +32,12 @@
 }
 
 .line{
+	text-align: center;
     position: absolute;
     transform-origin: top left;
     background-color: white;
     border-radius: 10px;
-    height: 2px;
+    height: 4px;
     z-index: 0;
 }
 
@@ -46,7 +46,7 @@
     width: 20px;
     height: 20px;
     transition: .5s;
-    box-shadow: -2px 2px 0 rgba(255,255,255,1);
+    box-shadow: -4px 4px 0 rgba(255,255,255,1);
     transform-origin: bottom left;
     border-width: 10px;
     z-index: -1 ;
@@ -89,16 +89,6 @@ select {
     margin-top: 80px;
 }
 
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 100%;
-    margin-top: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent black transparent transparent;
-}
 
 textarea{
     background-color: white;
@@ -121,6 +111,16 @@ input[type=text]{
     cursor: pointer;
 }
 
+#entradaMaquina{
+    background-color: white;
+	margin-bottom: 5px;
+    border: solid #f4f4f4;
+	border-width: 2px;
+    text-decoration: none;
+    width: 25%;
+    cursor: pointer;
+}
+
 
 input[type=button]{
     background-color: MediumSeaGreen;
@@ -130,8 +130,11 @@ input[type=button]{
     text-decoration: none;
     margin: 40px 2px;
     cursor: pointer;
-	transition:1s;
     border-radius: 5px;
+}
+
+#inputButton{
+	background-color: MediumSeaGreen;
 }
 
 
@@ -140,15 +143,12 @@ input[type=range]{
     background-color: MediumSeaGreen;
 }
 
-input[type=button]:hover{
-	background-color: #4ad387;
-	transition: 1s;
-}
-
 
 /* Tooltip container */
 .tooltip {
-    position: relative;
+    position: absolute;
+	top:0px;
+	left:0px;
     display: inline-block;
 }
 
@@ -164,15 +164,26 @@ input[type=button]:hover{
  
     /* Position the tooltip text - see examples below! */
     position: absolute;
-    z-index: 1;
-    top: -5px;
-    left: 110%;
+    z-index: 20;
+
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
     visibility: visible;
+	z-index: 21;
 }
+
+.exBox{
+    display: none;
+    background-color: white;
+    margin-left: 25%; 
+    margin-top: 0px; 
+    border-radius: 15px;
+    height: 82%;
+    width: 50%;
+}
+
 
 #descriptionBox{
 	display:none;
@@ -183,47 +194,27 @@ input[type=button]:hover{
 	padding: 10px;
 	text-align: center;
 	height: 400px;
-	width: 50%;
-    overflow: scroll;
+	width: 20%;
+    overflow: none;
 }
-
 
 #botoes{
 	border-radius: 15px; 
 	font-family:Arial;
 	background-color: #fff;
+	top: 57px;
 	width: 200px;
-	height: 110px;
+	height: 140px;
 	text-align:center;
-	opacity: 0.7;
-	transition:1s;
-}
-#botoes:hover{
-	opacity: 1;
-	transition:1s;
 }
 
 #botoes button{
-	background:MediumSeaGreen;
-	border:none;
+	background:#4ad387;
+	border-width: 0px;
 	padding: 8px 20px;
 	color: white;
 	margin: 0 5px;
 	border-radius: 5px;
-}
-#botoes button{
-	background:MediumSeaGreen;
-	border:none;
-	padding: 8px 20px;
-	color: white;
-	margin: 0 5px;
-	cursor: pointer;
-	transition: 1s;
-}
-
-#botoes button:hover{
-	background-color: #4ad387;
-	transition: 1s;
 }
 
 #titulo{
@@ -239,3 +230,38 @@ input[type=button]:hover{
 #tabela, #text{
     background:Gray;
 }
+
+#mealy{
+	position: absolute;
+	border-radius: 15px; 
+	font-family:Arial;
+	background-color: white;
+	opacity: 1;
+	top: 225px;
+	width: 200px;
+	height: 130px;
+	text-align:center;
+}
+
+#backButton{
+	position: absolute;
+	z-index: 20;
+}
+
+#inputMealy, #outputMealy{
+	background: solid;
+	background-color: #4ad387;
+	opacity: 1;
+	text-align:center;
+	float: left;
+	border:none;
+	color: white;
+	margin: 0 5px;
+	border-radius: 5px;
+	height: 40%;
+	width: 40%;
+}
+#inputMealy{
+	margin-left: 7%;
+}
+
